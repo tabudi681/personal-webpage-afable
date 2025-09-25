@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="image/red-ui-moewalls-com.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header class="header">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="logo">
+            <a href="#home"><img src="image/logo.png" alt="logo"></a>
+        </div>
+
+        <nav class="navbar">
+            <label for="menu-toggle" class="close-icon"><i class="fas fa-times"></i></label>
+            <ul class="nav-links">
+                <li><a class="nav-link active" href="#home">Home</a></li>
+                <li><a class="nav-link" href="#about">About</a></li>
+                <li><a class="nav-link" href="#hobby">Hobby</a></li>
+                <li><a class="nav-link" href="#skill">Skill</a></li>
+                <li><a class="nav-link" href="#project">Project</a></li>
+                <li><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li><a class="nav-link" href="#map">Map</a></li>
+                <li><a href="#contact" class="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>AFABLE</h1>
+        <p>This is just a website I made while learning,</p>
+        <p>not sure what it's for yet but here it is</p>
+        <div class="competitive-area">
+            <h2>Skill Ranking</h2>
+            <p>Web Development: <span class="rank">★★★★☆ (4/5)</span></p>
+            <p>Backend Systems: <span class="rank">★★★☆☆ (3/5)</span></p>
+            <p>Responsive Design: <span class="rank">★★★★☆ (4/5)</span></p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <img src="image/1756259238414.jpg" alt="My Photo" class="about-photo">
+        <p>Hello! I'm Russell Jan B Afable, a passionate web enthusiast...</p>
+        <div class="competitive-area">
+            <h2>Milestone Tracker</h2>
+            <p>Projects Completed: <span class="milestone">3/5</span></p>
+            <p>Skills Mastered: <span class="milestone">4/6</span></p>
+            <p>Learning Hours: <span class="milestone">200+</span></p>
+        </div>
+    </section>
+
+    <section id="skill">
+        <h1>Skills</h1>
+        <p>My expertise covers a range of web development technologies and other areas.</p>
+        <div class="skill-grid">
+            <div class="skill-card">
+                <i class="fas fa-laptop-code skill-icon"></i>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, and modern frameworks like React and Vue.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server skill-icon"></i>
+                <h3>Backend Systems</h3>
+                <p>to be followed lang sa kay for requirements nalang ni na we</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt skill-icon"></i>
+                <h3>Responsive Design</h3>
+                <p>Creating websites that look great on any device, from desktop to mobile.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobby">
+        <div class="hobby-content">
+            <div class="hobby-details">
+                <h1 id="hobby-title">My Hobbies</h1>
+                <p id="hobby-description">Click on any item in the carousel to learn more about it.</p>
+                <a href="#" class="discover-more-btn">
+                    <span>EXPLORE MORE</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-inner">
+                    <div class="hobby-item"
+                        data-title="Mati Beach Getaway"
+                        data-desc="A serene escape to the beautiful shores of Mati, perfect for relaxation and reflection."
+                        data-background-image="image/mati.jpg">
+                        <img src="image/mati.jpg" alt="Mati Beach">
+                        <div class="item-text">
+                            <h3>Mati Beach</h3>
+                            <span>Davao Oriental • Philippines</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item"
+                        data-title="Motorcycling Adventures"
+                        data-desc="Hitting the open road on two wheels, exploring new landscapes and feeling the freedom of the ride."
+                        data-background-image="image/iring1.jpg">
+                        <img src="image/iring1.jpg" alt="Motorcycling">
+                        <div class="item-text">
+                            <h3>Motorcycling</h3>
+                            <span>Road Trips • Philippines</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item"
+                        data-title="Biker's Journey"
+                        data-desc="The thrill of long rides and the camaraderie of fellow bikers, embracing the journey more than the destination."
+                        data-background-image="image/iring2.jpg">
+                        <img src="image/iring2.jpg" alt="Biker's Life">
+                        <div class="item-text">
+                            <h3>Biker's Life</h3>
+                            <span>Adventures • Mindanao</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item audio-card"
+                        data-title="Music: Joji - Glimpse of Us"
+                        data-desc="A deeply emotional and popular track by Joji, perfect for introspective moments."
+                        data-background-image="image/download2.jpg">
+                        <img src="image/download2.jpg" alt="Joji - Glimpse of Us">
+                        <audio controls class="audio-player">
+                            <source src="audio/joji.mp3" type="audio/mpeg">
+                        </audio>
+                        <div class="item-text">
+                            <h3>Glimpse of Us</h3>
+                            <span>Joji • Music</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item audio-card"
+                        data-title="Music: d4vd - Feel It"
+                        data-desc="A calm and atmospheric song from d4vd, great for unwinding and focusing."
+                        data-background-image="image/download1.png">
+                        <img src="image/download1.png" alt="d4vd - Feel It">
+                        <audio controls class="audio-player">
+                            <source src="audio/d4vd_-_Feel_It(256k).mp3" type="audio/mpeg">
+                        </audio>
+                        <div class="item-text">
+                            <h3>Feel It</h3>
+                            <span>d4vd • Music</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item audio-card"
+                        data-title="Music: JVKE - Golden Hour"
+                        data-desc="The viral sensation by JVKE, known for its beautiful melody and heartfelt lyrics."
+                        data-background-image="image/download3.png">
+                        <img src="image/download3.png" alt="JVKE - Golden Hour">
+                        <audio controls class="audio-player">
+                            <source src="audio/JVKE_-_golden_hour__Lyrics_(256k).mp3" type="audio/mpeg">
+                        </audio>
+                        <div class="item-text">
+                            <h3>Golden Hour</h3>
+                            <span>JVKE • Music</span>
+                        </div>
+                    </div>
+
+                    <div class="hobby-item"
+                        data-title="Scenic View Exploration"
+                        data-desc="Capturing breathtaking views and serene moments from various locations."
+                        data-background-image="image/video_thumbnail.jpg">
+                        <video controls>
+                            <source src="image/1804aaf2d0028601f1cfdc849d4d5486.mp4" type="video/mp4">
+                        </video>
+                        <div class="item-text">
+                            <h3>Scenic Exploration</h3>
+                            <span>Travel • Videos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="nav-arrow left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-arrow right"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project">
+    <h1>Projects</h1>
+    <p>A few examples of my work, showcasing my skills in web development.</p>
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="image/images.jfif" alt="Project 1">
+            <div class="project-info">
+                <a href="bootstrap.html" class="project-card">
+                    <h3>Bootsrap Website</h3>
+                    <p>A powerful front-end that makes it responsive and modern websites.</p>
+                </a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="image/ChatGPT-logo-01.png" alt="Project 2">
+            <div class="project-info">
+                <a href="chatgpt.html" class="project-card">
+                    <h3>Smash gpt website</h3>
+                    <p>An AI chatbot that helps answer questions, and provide quick assistance.</p>
+                </a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="image/calculator.png" alt="Project 3">
+            <div class="project-info">
+                <a href="logincalcu.html" class="project-card">
+                    <h3>Calcudiator smash</h3>
+                    <p>A basic app for solving mathematical operations quickly and accurately.</p>
+                </a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="image/images.png" alt="Project 4">
+            <div class="project-info">
+                <a href="Todolist.html" class="project-card">
+                    <h3>Todo list</h3>
+                    <p>A simple tool to organize tasks, keep track of progress, and boost productivity.</p>
+                </a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="image/2614727.png" alt="Project 5">
+            <div class="project-info">
+                <a href="newproject.html" class="project-card">
+                    <h3>Daynasor game</h3>
+                    <p>A fun, offline-style jumping game inspired by Google Chrome’s dino runner.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <section id="schedule">
+        <h1>Schedule</h1>
+        <p>My personal schedule or timetable.</p>
+        <div class="schedule-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8:00 AM - 10:00 AM</td>
+                        <td>Work on Project</td>
+                        <td>Learn New Skill</td>
+                        <td>Team Meeting</td>
+                        <td>Work on Project</td>
+                        <td>Review Progress</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 AM - 12:00 PM</td>
+                        <td>Coding Practice</td>
+                        <td>Coding Practice</td>
+                        <td>Coding Practice</td>
+                        <td>Coding Practice</td>
+                        <td>Coding Practice</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM - 3:00 PM</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                        <td>Lunch Break</td>
+                    </tr>
+                    <tr>
+                        <td>3:00 PM - 5:00 PM</td>
+                        <td>Read Docs</td>
+                        <td>Review Code</td>
+                        <td>Debug App</td>
+                        <td>Plan Next Steps</td>
+                        <td>Gym</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="map">
+        <h1>Map</h1>
+        <p>Here's where I am located.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d916.8766969656335!2d125.61255931996271!3d7.359008645501864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f94900373f55bd%3A0xd6fc7828f2e8446!2sBalay%20ni%20Wardjay!5e1!3m2!1sen!2sph!4v1757491879646!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out for collaborations, inquiries, or just to say hi!</p>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        // Hobby Section Script
+        const hobbySection = document.getElementById("hobby");
+        const hobbyTitle = document.getElementById("hobby-title");
+        const hobbyDescription = document.getElementById("hobby-description");
+        const hobbyItems = document.querySelectorAll(".hobby-item");
+        const carouselInner = document.querySelector('.carousel-inner');
+        const navLeft = document.querySelector('#hobby .nav-arrow.left');
+        const navRight = document.querySelector('#hobby .nav-arrow.right');
+
+        // Set initial content
+        const initialItem = hobbyItems[0];
+        if (initialItem) {
+            hobbyTitle.textContent = initialItem.getAttribute("data-title");
+            hobbyDescription.textContent = initialItem.getAttribute("data-desc");
+            initialItem.classList.add('active-card');
+        }
+
+        hobbyItems.forEach(item => {
+            item.addEventListener("click", () => {
+                hobbyItems.forEach(i => i.classList.remove('active-card'));
+                item.classList.add('active-card');
+                hobbyTitle.textContent = item.getAttribute("data-title");
+                hobbyDescription.textContent = item.getAttribute("data-desc");
+                // Removed background image change to preserve video background
+            });
+        });
+
+        // Carousel Navigation
+        const cardWidth = hobbyItems.length > 0 ? hobbyItems[0].offsetWidth + 20 : 0;
+        navRight.addEventListener('click', () => {
+            carouselInner.scrollBy({ left: cardWidth * 2, behavior: 'smooth' });
+        });
+        navLeft.addEventListener('click', () => {
+            carouselInner.scrollBy({ left: -cardWidth * 2, behavior: 'smooth' });
+        });
+
+        // Navigation Scroll to Center + Auto-close sidebar
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        const sectionHeight = targetSection.offsetHeight;
+                        const windowHeight = window.innerHeight;
+                        const scrollOffset = targetSection.offsetTop - ((windowHeight - sectionHeight) / 2);
+                        window.scrollTo({ top: scrollOffset, behavior: 'smooth' });
+                    }
+
+                    document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
+                }
+
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+/* ===== Global Styles ===== */
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  height: 100vh;
+  color: #fff;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  background: #000;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-right: 2px solid #fff;
+  transition: width 0.3s ease-in-out;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Hide labels, project name, close button, and logo when collapsed */
+.sidebar.collapsed .label,
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .close-btn,
+.sidebar.collapsed .sidebar-logo {
+  display: none;
+}
+
+/* Sidebar items */
+.sidebar-item {
+  cursor: pointer;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(6px);
+}
+
+.active-item {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #fff;
+}
+
+/* Sidebar logo image */
+.sidebar-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Sidebar logo text */
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  color: #fff;
+  padding: 10px 0;
+  transition: color 0.3s;
+}
+
+/* Wrap logo + text side by side */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Project name highlight */
+.sidebar:not(.collapsed) .logo-text {
+  color: rgb(255, 255, 255);
+}
+
+/* Sidebar bottom profile */
+.profile {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #333;
+  color: #fff;
+}
+
+/* ===== Toggle & Close Buttons ===== */
+.nav-toggle {
+  margin-left: auto;
+  cursor: pointer;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.nav-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Only show close button when sidebar is open */
+.close-btn {
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.sidebar.collapsed .close-btn {
+  display: none;
+}
+
+/* ===== Content Area ===== */
+.content {
+  margin-left: 240px;
+  transition: margin-left 0.3s ease-in-out;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.content.collapsed {
+  margin-left: 70px;
+}
+
+.content > * {
+  margin: 10px 0;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.search-bar {
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #111;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}

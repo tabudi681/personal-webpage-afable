@@ -1,0 +1,336 @@
+:root {
+    --primary-accent: #ffc107;
+    --text-light: #ccc;
+    --bg-dark: #121212;
+    --bg-darker: #0d0d0d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    color: #fff;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Video Background */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(0.6);
+}
+
+/* Fallback background */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--bg-dark);
+    z-index: -3;
+    opacity: 0.8;
+}
+
+/* Overlay for content readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+.login-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: opacity 0.5s ease-in-out;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2em;
+    margin: 0;
+    color: var(--primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1em;
+    color: var(--text-light);
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 18px 50px 18px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1em;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+}
+
+input.error {
+    border-color: #ff0000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+.input-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.toggle-password {
+    cursor: pointer;
+    user-select: none;
+}
+
+.remember {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.remember-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid var(--text-light);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 12px;
+}
+
+.forgot {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--primary-accent);
+    color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box;
+}
+
+.login-btn:hover {
+    background-color: #f7b700;
+    transform: translateY(-5px);
+}
+
+.calculator-container {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.calculator-container h2 {
+    font-size: 2em;
+    margin: 0;
+    color: var(--primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-container input#display {
+    width: 90%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.5em;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.calculator-container input#display.operator-active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-accent);
+    font-weight: bold;
+    border-color: var(--primary-accent);
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 90%;
+}
+
+.calculator-buttons button {
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.calculator-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.calculator-buttons button:active {
+    transform: scale(0.95);
+}
+
+.calculator-buttons button.operator {
+    background-color: var(--primary-accent);
+    color: #000;
+}
+
+.calculator-buttons button.operator:hover {
+    background-color: #f7b700;
+}
+
+.calculator-buttons button.clear,
+.calculator-buttons button.equals,
+.calculator-buttons button.delete {
+    background-color: var(--primary-accent);
+    color: #000;
+}
+
+.calculator-buttons button.clear:hover,
+.calculator-buttons button.equals:hover,
+.calculator-buttons button.delete:hover {
+    background-color: #f7b700;
+}
+
+.logout-btn {
+    width: 90%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--primary-accent);
+    color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #f7b700;
+    transform: translateY(-5px);
+}
+
+.logout-btn:active {
+    transform: scale(0.95);
+}
+
+#loginMessage {
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+@media (max-width: 480px) {
+    .login-container, .calculator-container {
+        padding: 20px;
+    }
+}

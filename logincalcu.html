@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login & Calculator</title>
+    <link rel="stylesheet" href="logincalcu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="image/red-ui-moewalls-com.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="login-container">
+        <h2>Smash Calculator</h2>
+        <p class="tagline">Calculate with Confidence, Smash the Numbers!</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <i class="fas fa-envelope input-icon"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <i id="togglePassword" class="fas fa-eye input-icon toggle-password"></i>
+            </div>
+            <div class="remember">
+                <div class="remember-checkbox">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe">Remember me</label>
+                </div>
+                <a href="#" class="forgot">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <p id="loginMessage"></p>
+        </form>
+    </div>
+
+    <div id="calculator" class="calculator-container" style="display: none;">
+        <h2>Smash Calculator</h2>
+        <input type="text" id="display" placeholder="Enter number" readonly>
+        <div class="calculator-buttons">
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="calculate('/')">/</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="calculate('*')">*</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="calculate('-')">-</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="delete" onclick="deleteLastDigit()">Del</button>
+            <button class="operator" onclick="calculate('+')">+</button>
+            <button class="equals" onclick="calculateResult()">=</button>
+        </div>
+        <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+
+    <audio id="loginSound" preload="auto">
+        <source src="audio/success.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const loginContainer = document.querySelector('.login-container');
+            const calculatorContainer = document.getElementById('calculator');
+            const loginMessage = document.getElementById('loginMessage');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+            const loginSound = document.getElementById('loginSound');
+
+            // Remove error class when user starts typing
+            emailInput.addEventListener('input', () => {
+                emailInput.classList.remove('error');
+            });
+            passwordInput.addEventListener('input', () => {
+                passwordInput.classList.remove('error');
+            });
+
+            togglePassword.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                togglePassword.classList.toggle('fa-eye', isPassword);
+                togglePassword.classList.toggle('fa-eye-slash', !isPassword);
+            });
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = emailInput.value;
+                const password = passwordInput.value;
+
+                // Reset error classes
+                emailInput.classList.remove('error');
+                passwordInput.classList.remove('error');
+
+                // Email validation
+                if (!email.endsWith('@yahoo.com') && !email.endsWith('@gmail.com')) {
+                    loginMessage.textContent = 'Email must be from @yahoo.com or @gmail.com.';
+                    loginMessage.style.color = '#ff0000';
+                    emailInput.classList.add('error');
+                    return;
+                }
+
+                // Password validation: at least 8 characters, lowercase, uppercase, digit, symbol
+                if (password.length < 8) {
+                    loginMessage.textContent = 'Password must be at least 8 characters.';
+                    loginMessage.style.color = '#ff0000';
+                    passwordInput.classList.add('error');
+                    return;
+                }
+                if (!/[a-z]/.test(password)) {
+                    loginMessage.textContent = 'Password must contain at least one lowercase letter.';
+                    loginMessage.style.color = '#ff0000';
+                    passwordInput.classList.add('error');
+                    return;
+                }
+                if (!/[A-Z]/.test(password)) {
+                    loginMessage.textContent = 'Password must contain at least one uppercase letter.';
+                    loginMessage.style.color = '#ff0000';
+                    passwordInput.classList.add('error');
+                    return;
+                }
+                if (!/[0-9]/.test(password)) {
+                    loginMessage.textContent = 'Password must contain at least one digit.';
+                    loginMessage.style.color = '#ff0000';
+                    passwordInput.classList.add('error');
+                    return;
+                }
+                if (!/[^a-zA-Z0-9]/.test(password)) {
+                    loginMessage.textContent = 'Password must contain at least one symbol.';
+                    loginMessage.style.color = '#ff0000';
+                    passwordInput.classList.add('error');
+                    return;
+                }
+
+                loginMessage.textContent = 'Login successful!';
+                loginMessage.style.color = '#fff';
+                loginSound.play(); // Play sound on successful login
+                
+                setTimeout(() => {
+                    loginContainer.style.display = 'none';
+                    calculatorContainer.style.display = 'flex';
+                }, 1000);
+            });
+
+            window.logout = function() {
+                calculatorContainer.style.display = 'none';
+                loginContainer.style.display = 'flex';
+                emailInput.value = '';
+                passwordInput.value = '';
+                loginMessage.textContent = '';
+                emailInput.classList.remove('error');
+                passwordInput.classList.remove('error');
+                clearDisplay();
+            };
+
+            let currentInput = '';
+            let firstNumber = null;
+            let operator = null;
+            const display = document.getElementById('display');
+
+            window.appendNumber = function(number) {
+                if (number === '.' && currentInput.includes('.')) return;
+                currentInput += number;
+                display.value = currentInput;
+                display.classList.remove('operator-active');
+            };
+
+            window.clearDisplay = function() {
+                currentInput = '';
+                firstNumber = null;
+                operator = null;
+                display.value = '';
+                display.classList.remove('operator-active');
+            };
+
+            window.deleteLastDigit = function() {
+                if (operator === null || currentInput !== '') {
+                    currentInput = currentInput.slice(0, -1);
+                    display.value = currentInput || '';
+                    display.classList.remove('operator-active');
+                }
+            };
+
+            window.calculate = function(op) {
+                if (currentInput === '') return;
+                firstNumber = parseFloat(currentInput);
+                operator = op;
+                currentInput = '';
+                display.value = op;
+                display.classList.add('operator-active');
+            };
+
+            window.calculateResult = function() {
+                if (firstNumber === null || operator === null || currentInput === '') {
+                    display.value = 'Error';
+                    display.classList.add('operator-active');
+                    return;
+                }
+                const secondNumber = parseFloat(currentInput);
+                let res;
+                if (isNaN(firstNumber) || isNaN(secondNumber)) {
+                    display.value = 'Invalid';
+                    display.classList.add('operator-active');
+                    return;
+                }
+
+                switch(operator) {
+                    case '+': res = firstNumber + secondNumber; break;
+                    case '-': res = firstNumber - secondNumber; break;
+                    case '*': res = firstNumber * secondNumber; break;
+                    case '/': 
+                        if (secondNumber === 0) {
+                            display.value = 'Infinity';
+                            display.classList.add('operator-active');
+                            return;
+                        }
+                        res = firstNumber / secondNumber; 
+                        break;
+                    default: res = 'Invalid'; break;
+                }
+                currentInput = res.toString();
+                firstNumber = null;
+                operator = null;
+                display.value = currentInput;
+                display.classList.remove('operator-active');
+            };
+        });
+    </script>
+</body>
+</html>
